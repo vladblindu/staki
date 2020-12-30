@@ -1,0 +1,27 @@
+{
+  "name": "staki",
+  "version": "1.0.0",
+  "description": "Starter kit project scaffolding utility",
+  "main": "index.js",
+  "author": "bitbrother",
+  "license": "MIT",
+  "repository": "https://github.com/vladblindu/staki.git",
+  "private": false,
+  "bin": "./index.js",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.1",
+    "execa": "^5.0.0",
+    "glob": "^7.1.6",
+    "inquirer": "^7.3.3",
+    "pkg-up": "^3.1.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=TEST mocha test/*.specs.js",
+    "mk-env-test": "node ./test/__fixtures__/env-test/create-test-env.js"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
+}
