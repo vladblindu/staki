@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed78342d-704e-4c53-8840-138d3767fb8e" name="Default Changelist" comment="env added">
-      <change afterPath="$PROJECT_DIR$/../staki/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/.idea/staki.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/_art/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/defaults.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/env/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/env/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/env/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/init/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/init/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/env-test/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/env-test/create-test-env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/env-test/env-vault.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/env-test/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/env-test/sk.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/packages-test/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/packages-test/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/packages-test/packages/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/__fixtures__/packages-test/packages/package1/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/env.specs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/test/utils.specs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../staki/yarn.lock" afterDir="false" />
+    <list default="true" id="27eef59a-9a41-4269-a7e2-f422d90c9954" name="Default Changelist" comment="init">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/_template__of_mocha_javascript_test_runner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_globals/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_globals/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/init/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/staki.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/staki.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/defaults.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/_globals/defaults.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/init/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/init/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__fixtures__/env-test/env-vault.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__fixtures__/env-test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test/__fixtures__/env-test/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__fixtures__/env-test/sk.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/__fixtures__/env-test/staki.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/env.specs.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/env.specs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/utils.specs.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/init.specs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +39,9 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../staki" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1mFOPhasOHxufvaGL9boAIsGRaS" />
+  <component name="ProjectId" id="1mPnzJzoBePBvrJRXKI2B2wYrpj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -59,89 +52,34 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.3" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test/__fixtures__/env-test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/init" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
+    <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/test/__fixtures__/env-test" />
+      <recent name="$PROJECT_DIR$/init" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/init" />
-      <recent name="$PROJECT_DIR$/env" />
-      <recent name="$PROJECT_DIR$/index.js" />
-      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/_globals" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.run-env-test-mode">
-    <configuration name="run-env-test-mode" type="NodeJSConfigurationType" application-parameters="env " path-to-js-file="$PROJECT_DIR$/../staki/index.js" working-dir="$PROJECT_DIR$/../staki">
-      <envs>
-        <env name="NODE_ENV" value="TEST" />
-      </envs>
-      <method v="2">
-        <option name="NpmBeforeRunTask" enabled="true">
-          <package-json value="$PROJECT_DIR$/package.json" />
-          <command value="run" />
-          <scripts>
-            <script value="mk-env-test" />
-          </scripts>
-          <node-interpreter value="project" />
-          <envs />
-        </option>
-      </method>
-    </configuration>
-    <configuration name="run-init-test-mode" type="NodeJSConfigurationType" application-parameters="init tmp" path-to-js-file="$PROJECT_DIR$/../staki/index.js" working-dir="$PROJECT_DIR$/../staki">
-      <method v="2" />
-    </configuration>
-    <configuration name="mk-env-test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="mk-env-test" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="test" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs>
-        <env name="NODE_ENV" value="TEST" />
-      </envs>
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method v="2" />
-    </configuration>
-    <configuration name="env.actions" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Mocha.env">
+    <configuration name="env" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -156,11 +94,31 @@
       <test-file>$PROJECT_DIR$/test/env.specs.js</test-file>
       <test-names>
         <name value="env" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="env.actions.updateConfig.should update local config" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs>
+        <env name="NODE_ENV" value="TEST" />
+      </envs>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/env.specs.js</test-file>
+      <test-names>
+        <name value="env" />
         <name value="actions" />
+        <name value="updateConfig" />
+        <name value="should update local config" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="utils.getRoot.should create a new path" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="utils.createRoot" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -171,16 +129,15 @@
       </envs>
       <ui>bdd</ui>
       <extra-mocha-options />
-      <test-kind>TEST</test-kind>
+      <test-kind>SUITE</test-kind>
       <test-file>$PROJECT_DIR$/test/utils.specs.js</test-file>
       <test-names>
         <name value="utils" />
-        <name value="getRoot" />
-        <name value="should create a new path" />
+        <name value="createRoot" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="utils.getRoot.should throw if path exists" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="utils.getGit" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -191,81 +148,53 @@
       </envs>
       <ui>bdd</ui>
       <extra-mocha-options />
-      <test-kind>TEST</test-kind>
+      <test-kind>SUITE</test-kind>
       <test-file>$PROJECT_DIR$/test/utils.specs.js</test-file>
       <test-names>
         <name value="utils" />
-        <name value="getRoot" />
-        <name value="should throw if path exists" />
+        <name value="getGit" />
       </test-names>
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Mocha.env.actions" />
-      <item itemvalue="Mocha.utils.getRoot.should create a new path" />
-      <item itemvalue="Mocha.utils.getRoot.should throw if path exists" />
-      <item itemvalue="Node.js.run-init-test-mode" />
-      <item itemvalue="Node.js.run-env-test-mode" />
-      <item itemvalue="npm.test" />
-      <item itemvalue="npm.mk-env-test" />
-    </list>
+    <configuration name="utils.getPackages" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs>
+        <env name="NODE_ENV" value="TEST" />
+      </envs>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/utils.specs.js</test-file>
+      <test-names>
+        <name value="utils" />
+        <name value="getPackages" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.mk-env-test" />
-        <item itemvalue="npm.test" />
-        <item itemvalue="Mocha.utils.getRoot.should throw if path exists" />
-        <item itemvalue="Mocha.utils.getRoot.should create a new path" />
-        <item itemvalue="Mocha.env.actions" />
+        <item itemvalue="Mocha.env" />
+        <item itemvalue="Mocha.env.actions.updateConfig.should update local config" />
+        <item itemvalue="Mocha.utils.getPackages" />
+        <item itemvalue="Mocha.utils.getGit" />
+        <item itemvalue="Mocha.utils.createRoot" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ed78342d-704e-4c53-8840-138d3767fb8e" name="Default Changelist" comment="" />
-      <created>1609085853219</created>
+      <changelist id="27eef59a-9a41-4269-a7e2-f422d90c9954" name="Default Changelist" comment="" />
+      <created>1609404357496</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1609085853219</updated>
-      <workItem from="1609085854952" duration="21007000" />
-      <workItem from="1609315394848" duration="20126000" />
+      <updated>1609404357496</updated>
+      <workItem from="1609404362343" duration="8980000" />
     </task>
-    <task id="LOCAL-00001" summary="init">
-      <created>1609087642911</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1609087642911</updated>
-    </task>
-    <task id="LOCAL-00002" summary="version 1.0.0">
-      <created>1609242182162</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1609242182162</updated>
-    </task>
-    <task id="LOCAL-00003" summary="adding env">
-      <created>1609326162252</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1609326162252</updated>
-    </task>
-    <task id="LOCAL-00004" summary="adding env">
-      <created>1609329803922</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1609329803922</updated>
-    </task>
-    <task id="LOCAL-00005" summary="adding env">
-      <created>1609337688606</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1609337688606</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,22 +213,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/test-path" />
-      <path value="$PROJECT_DIR$/test/__fixtures__/packages-test" />
-      <path value="$PROJECT_DIR$/init" />
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
     <MESSAGE value="init" />
-    <MESSAGE value="version 1.0.0" />
-    <MESSAGE value="adding env" />
-    <MESSAGE value="env added" />
-    <option name="LAST_COMMIT_MESSAGE" value="env added" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/init/utils.js</url>
+          <line>16</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="mocha-javascript-test-runner">
-        <watch expression="JSON.parse(fs.readFileSync(envVaultPath))" language="JavaScript" />
+        <watch expression="pkg['staki'].env['test-key']" language="JavaScript" />
       </configuration>
     </watches-manager>
   </component>

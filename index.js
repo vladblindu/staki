@@ -4,6 +4,7 @@ const cli = require('commander')
 const chalk = require('chalk')
 const init = require('./init')
 const env = require('./env')
+const {starterGitTemplate} = require('./_globals/defaults.config')
 const {version} = require('./package.json')
 
 // Set version
@@ -11,7 +12,11 @@ cli.version(version, '-v, --ver', 'display the current version')
 
 // Initialising
 cli
-    .command('init')
+    .command('init [dir] [tpl]')
+    .description('init command', {
+        dir: 'new project directory. (if omitted, current directory will be assumed)',
+        tpl: `Starter git template repo (defaults to: \n${starterGitTemplate})`
+    })
     .action(init)
 
 // Create env file
@@ -25,7 +30,8 @@ cli
     .option('-l, --list', 'lists all env-vault saved key/values pairs.')
     .option('-r, --remove', 'Remove env entry by key')
     .option('-u, --update', 'Update env entry by key')
-    .option('-n, --update', 'Add env entry by key and save it to both env-vault and local staki.config.js')
+    .option('-n, --new', 'Add env entry by key and save it to both env-vault and local staki.config.js')
+    .option('-c, --create', 'Create .env file')
     .action(env)
 
 

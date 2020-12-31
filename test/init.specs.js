@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
 const {FIXTURES, TEST_PACKAGES_DIR, TEST_NO_PACKAGES_DIR} = require('./constants')
-const {starterGitTemplate} = require('../defaults.config')
+const {starterGitTemplate} = require('../_globals/defaults.config')
 const {expect} = require('chai')
 const {getRoot, createRoot, getGit, getPackages, setPackageName} = require('../init/utils')
 
@@ -25,30 +25,19 @@ describe('utils', () => {
 
     describe('getRoot', () => {
 
-        const args = ['_', '_', undefined]
-
         before(() => {
             dirCleanup()
         })
 
-        it('should return the upper directory', () => {
-            expect(getRoot(args)).to.equal(process.cwd())
-        })
-
-        it('should return the upper directory also', () => {
-            args[2] = '.'
-            expect(getRoot(args)).to.equal(process.cwd())
-        })
 
         it('should create a new path', () => {
-            args[3] = testPath
-            expect(getRoot(args)).to.equal(path.join(process.cwd(), testPath))
+            expect(getRoot(testPath)).to.equal(path.join(process.cwd(), testPath))
         })
 
         it('should throw if path exists', () => {
             fs.mkdirSync(path.join(fixturesDir, testPath))
-            args[3] = testPath
-            expect(() => getRoot(args)).to.throw()
+            const dir = testPath
+            expect(() => getRoot(dir)).to.throw()
         })
     })
 

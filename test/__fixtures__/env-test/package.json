@@ -3,5 +3,10 @@
   "version": "1.0.0",
   "author": "bitbrother",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "staki": {
+    "env": [
+      "test-key"
+    ]
+  }
 }

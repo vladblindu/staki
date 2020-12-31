@@ -2,19 +2,20 @@
 # STAKI
 ### Starter kit project scaffolding & maintenance cli utility
 
-```bash
+```sh
     yarn add @bitbrother/starter-kit
-    #or
+```
+or
+```sh
     npm install @bitbrother/starter-kit
 ```
 ### Usage
-Create a new project - use the init command followed by the project dir name.
-If no directory specified, the installation will use the current working directory
 
-```shell
-   starter init projectDir
-   #or
-   starter init . #for current dir
-   #or just
-   starter init   #for current dir
+General usage format is:
+```sh
+    staki <command> [options] [arguments]
 ```
+While options and arguments are specific to each command, the available commands are listed bellow:
+
+- [init - Project initialization tool](./init/README.md)
+- [env - Environment variables management tool](./env/README.md)

@@ -2,24 +2,21 @@ const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
 const execa = require('execa')
-const {starterGitTemplate} = require('../defaults.config')
+const {PKG} = require('../_globals/constants')
+const {starterGitTemplate} = require('../_globals/defaults.config')
 
 module.exports = {
     /**
      * @name getRoot
      * @description gets the root of a new project
-     * @param {string[]} args
+     * @param {string} dir
      * @returns {string}
      */
-    getRoot: args => {
-        if (args.length < 4 || !args[3])
-            return path.resolve('./')
-        else if (args[3].trim() === '.')
-            return path.resolve('./')
-        else if (fs.existsSync(
-            path.join(process.cwd(), args[3])))
-            throw new Error(`Directory ${args[3]} already exists. Fatal error. Exiting.`)
-        return path.join(process.cwd(), args[3])
+    getRoot: dir => {
+        if (fs.existsSync(
+            path.join(process.cwd(), dir)))
+            throw new Error(`Directory ${dir} already exists. Fatal error. Exiting.`)
+        return path.join(process.cwd(), dir)
     },
     /**
      * @name createRoot
@@ -38,12 +35,12 @@ module.exports = {
     /**
      * @name getGit
      * @description clones the template repo
-     * @param {string} root
+     * @param {string} dir
      * @param {string?} tpl
      */
-    getGit: (root, tpl = starterGitTemplate) => {
+    getGit: (dir, tpl = starterGitTemplate) => {
         try {
-            execa.commandSync(`git clone ${tpl} ${root}`)
+            execa.commandSync(`git clone ${tpl} ${dir}`)
         } catch (err) {
             throw new Error(`Couldn't clone the starter template repo at ${starterGitTemplate}`)
         }
@@ -55,14 +52,14 @@ module.exports = {
      *      path: package.json path
      *      data: package.json data
      * }
-     * @param {string} root
+     * @param {string} dir
      * @returns {object}[]}
      */
-    getPackages: root => {
+    getPackages: (dir ) => {
         let packs = []
         try {
-            packs = glob.sync('**/package.json', {
-                cwd: root,
+            packs = glob.sync(`**/${PKG}`, {
+                cwd: dir,
                 absolute: true
             })
         } catch (err) {

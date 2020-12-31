@@ -1,10 +1,15 @@
 const fs = require('fs')
+const path = require('path')
 const {expect} = require('chai')
-const {getEnvVault, putEnvVault} = require('../env/utils')
-const actions = require('../env/actions')
-const {envVaultPath} = require('../defaults.config')
+const {getEnvVault, putEnvVault, getConfig} = require('../env/utils')
+const {add, update, remove, list, updateConfig} = require('../env/actions')
+const {envVaultPath} = require('../_globals/defaults.config')
 
 describe('env', () => {
+
+    process.chdir(
+        path.join(process.cwd(), 'test', '__fixtures__', 'env-test')
+    )
 
     const testEnv = {
         key1: 'value1',
@@ -58,20 +63,20 @@ describe('env', () => {
             })
 
             it('should add a key/value pair to the env-vault', () => {
-                actions.add('key4', 'value4')
+                add('key4', 'value4')
                 const env = getEnvVault()
                 expect(env['key4']).equal('value4')
             })
 
             it('should throw if no value is present', () => {
                 expect(() => {
-                    actions.add('key', undefined)
+                    add('key', undefined)
                 }).to.throw()
             })
 
             it('should throw if no key and value is present', () => {
                 expect(() => {
-                    actions.add(undefined, undefined)
+                    add(undefined, undefined)
                 }).to.throw()
             })
         })
@@ -88,20 +93,20 @@ describe('env', () => {
             })
 
             it('should add a key/value pair to the env-vault', () => {
-                actions.remove('key2')
+                remove('key2')
                 const env = getEnvVault()
                 expect(env['key2']).to.be.undefined
             })
 
             it('should throw if key not provided', () => {
                 expect(() => {
-                    actions.remove(undefined)
+                    remove(undefined)
                 }).to.throw()
             })
 
             it('should throw if key not present', () => {
                 expect(() => {
-                    actions.remove('key4')
+                    remove('key4')
                 }).to.throw()
             })
         })
@@ -124,7 +129,7 @@ describe('env', () => {
                 }
                 const log = console.log
                 console.log = mockLog
-                actions.list('key2')
+                list('key2')
                 console.log = log
             })
 
@@ -139,13 +144,13 @@ describe('env', () => {
                 }
                 const log = console.log
                 console.log = mockLog
-                actions.list()
+                list()
                 console.log = log
             })
 
             it('should throw if key not present', () => {
                 expect(() => {
-                    actions.list('key4')
+                    list('key4')
                 }).to.throw()
             })
         })
@@ -161,15 +166,25 @@ describe('env', () => {
             })
 
             it('should update a key', () => {
-                actions.update('key2', 'new-value')
+                update('key2', 'new-value')
                 const env = getEnvVault()
                 expect(env['key2']).to.equal('new-value')
             })
 
             it('should throw if key not present', () => {
                 expect(() => {
-                    actions.list('key4')
+                    list('key4')
                 }).to.throw()
+            })
+        })
+
+        describe('updateConfig', () => {
+
+            it('should update local config', () => {
+                const testKey = 'test-key'
+                updateConfig(testKey)
+                const pkg = getConfig()
+                expect(pkg['staki'].env.indexOf(testKey) !== -1).to.be.true
             })
         })
     })

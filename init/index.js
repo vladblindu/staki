@@ -2,7 +2,7 @@ const path = require('path')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
 const {getGit, getPackages, getRoot, createRoot, setPackageName, setPackageData, putPackage} = require('./utils')
-const {appName, version, author, licenseTypes} = require('../defaults.config')
+const {appName, version, author, licenseTypes, stakiConfig} = require('../_globals/defaults.config')
 
 
 const queries = [
@@ -33,7 +33,7 @@ const queries = [
     }
 ]
 
-module.exports = async () => {
+module.exports = async (dir, tpl) => {
     console.log('Initializing new startup-project...')
     let queryData = null
     try {
@@ -43,17 +43,18 @@ module.exports = async () => {
         console.error('FATAL ERROR! Process exiting.')
         process.exit(1)
     }
-    const root = getRoot(process.argv)
-    const isLocal = root === process.cwd()
 
-    if (!isLocal) {
+    const local = !dir || dir.trim() === '.'
+    const root = local ? process.cwd() : getRoot(dir)
+
+    if (local) {
         process.stdout.write('Creating root directory...')
-        createRoot(root)
+        createRoot(dir)
         console.log(chalk.green('OK'))
     }
 
     process.stdout.write('Cloning start-up repo...')
-    getGit(root)
+    getGit(dir, tpl)
     console.log(chalk.green('OK'))
 
     process.stdout.write('retrieving package data...')
@@ -64,6 +65,7 @@ module.exports = async () => {
         pkg => {
             process.stdout.write(`Processing ./${path.relative(process.cwd(), pkg.path)}...`)
             pkg.data.name = setPackageName(queryData['appName'], pkg)
+            if (!pkg.data['staki']) pkg.data['staki'] = stakiConfig
             delete queryData['appName']
             pkg.data = setPackageData(queryData, pkg)
             putPackage(pkg)
@@ -72,7 +74,7 @@ module.exports = async () => {
 
 
     console.log(chalk.green('Setup ready.'))
-    if(!isLocal) console.log(`cd into ${path.basename(path.dirname(root))}`)
+    if (!local) console.log(`cd into ${path.basename(path.dirname(root))}`)
     console.log('Run "yarn install" to proceed')
 
 }

@@ -1,6 +1,4 @@
-const path = require('path')
-const {skConfigPath} = require('../defaults.config')
-const {putEnvVault, getEnvVault, undeclaredEnvKey, putEnv} = require('./utils')
+const {putEnvVault, getEnvVault, undeclaredEnvKey, putEnv, getConfig, putConfig} = require('./utils')
 
 /**
  * @name add
@@ -75,22 +73,13 @@ const update = (key, val) => {
 /**
  * @name createEnv
  * @description creates a .env file out of the keys specified
- * in the sk.config.js file from the values in the env-vault.json file
+ * in the staki.config.js file from the values in the env-vault.json file
  */
-const createEnv = async () => {
-    const root = path.dirname(skConfigPath)
-
-    const pkg = require(path.join(root, 'package.json'))
-
-    let envConfig = null
-    try {
-        envConfig = require(skConfigPath)
-    } catch (err) {
-        return console.error(`No sk.config.js file found in ${root}. Exiting.`)
-    }
+const createEnv = async (root = process.cwd()) => {
+    const pkg = getConfig(root)
     const envVault = getEnvVault()
     const env = await Promise.all(
-        envConfig.env.map(
+        pkg['staki'].env.map(
             async k => {
                 if (!envVault[k]) {
                     const queryData = await undeclaredEnvKey(k)
@@ -101,9 +90,15 @@ const createEnv = async () => {
             }
         ))
     putEnv(
-        root,
         `# Environment variables\n #for ${pkg.name}\n`.concat(env.join('\n'))
     )
+}
+
+const updateConfig = key => {
+    const pkg = getConfig()
+    if(pkg['staki'].env[key])
+        pkg['staki'].env.push(key)
+    putConfig(pkg)
 }
 
 module.exports = {
@@ -111,5 +106,6 @@ module.exports = {
     list,
     remove,
     update,
-    createEnv
+    createEnv,
+    updateConfig
 }

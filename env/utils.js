@@ -1,7 +1,9 @@
 const fs = require('fs')
 const path = require('path')
 const inquirer = require('inquirer')
-const {envVaultPath} = require('../defaults.config')
+const {createConfig} = require('../_globals/utils')
+const {PKG} = require('../_globals/constants')
+const {stakiConfigPath, envVaultPath} = require('../_globals/defaults.config')
 
 module.exports = {
     /**
@@ -40,7 +42,7 @@ module.exports = {
                 {
                     type: 'input',
                     name: 'value',
-                    message: `${k} key not found in env-vault. Specify vale:`,
+                    message: `${k} key not found in env-vault. Specify vale:`
                 },
                 {
                     type: 'confirm',
@@ -56,14 +58,30 @@ module.exports = {
         }
         return queryData
     },
-    putEnv: (root, env) => {
+    putEnv: env => {
         try {
             fs.writeFileSync(
-                path.join(root, '.env'),
+                path.join(process.cwd(), '.env'),
                 env
             )
         } catch (err) {
-            throw new Error(`Could not create .env file in ${root}. Reason: err.message`)
+            throw new Error(`Could not create .env file in ${process.cwd()}. Reason: ${err.message}`)
+        }
+    },
+    getConfig: () => {
+        try {
+            const pth = path.join(process.cwd(), PKG)
+            const pkg = JSON.parse(fs.readFileSync(pth, 'utf8'))
+            return createConfig(pkg)
+        } catch (err) {
+            throw new Error(`Couldn't find/read a local package.json file in:${process.cwd()}. reason: ${err.message}`)
+        }
+    },
+    putConfig: pkg => {
+        try {
+            fs.writeFileSync(path.join(process.cwd(), PKG), JSON.stringify(pkg, null, 2))
+        } catch (err) {
+            throw new Error(`Couldn't write the local staki config file at:${stakiConfigPath}. reason: ${err.message}`)
         }
     }
 }
