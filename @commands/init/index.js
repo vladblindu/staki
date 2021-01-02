@@ -33,7 +33,14 @@ const queries = [
     }
 ]
 
-module.exports = async (dir, tpl) => {
+/**
+ * @name init
+ * @description project initialisation command utility
+ * @param {String} dir
+ * @param {String} tpl
+ * @return {Promise<void>}
+ */
+const init = async (dir, tpl) => {
     console.log('Initializing new startup-project...')
     let queryData = null
     try {
@@ -77,3 +84,5 @@ module.exports = async (dir, tpl) => {
     if (!local) console.log(`cd into ${path.basename(path.dirname(root))}`)
     console.log('Run "yarn install" to proceed')
 }
+
+module.exports = init

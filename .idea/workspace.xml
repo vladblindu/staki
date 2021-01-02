@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27eef59a-9a41-4269-a7e2-f422d90c9954" name="Default Changelist" comment="init">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@commands/init/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/@commands/init/README.md" afterDir="false" />
+    <list default="true" id="27eef59a-9a41-4269-a7e2-f422d90c9954" name="Default Changelist" comment="added nav command">
+      <change beforePath="$PROJECT_DIR$/@commands/env/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/@commands/env/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@commands/init/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/@commands/init/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@commands/nav/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/@commands/nav/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@commands/ver/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/@commands/ver/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_globals/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/_globals/helpers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +195,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609404357496</updated>
       <workItem from="1609404362343" duration="32240000" />
-      <workItem from="1609573174581" duration="5398000" />
+      <workItem from="1609573174581" duration="5880000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1609415206835</created>
@@ -210,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609587778068</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added nav command">
+      <created>1609588211373</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609588211373</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +239,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="added nav command" />
+    <option name="LAST_COMMIT_MESSAGE" value="added nav command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

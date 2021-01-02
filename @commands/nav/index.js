@@ -5,6 +5,15 @@ const chalk = require('chalk')
 const {getPackages} = require('../../_globals/utils')
 const {findProjectRoot} = require('../../_globals/helpers')
 
+/**
+ * @name nav
+ * @description project dir navigation command utility
+ * @param {Object} cmdObj
+ * @param {boolean} cmdObj.back
+ * @param {boolean} cmdObj.root
+ * @return {Promise<void>}
+ */
+
 const nav = async cmdObj => {
     const tmpPath = path.join(__dirname, 'tmp', 'history')
 

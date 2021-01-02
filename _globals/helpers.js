@@ -3,6 +3,7 @@ const fs = require('fs')
 const {PACKAGES_ROOT, PKG} = require('./constants')
 
 module.exports = {
+
     /**
      * @name isEmpty
      * @description checks if an plain object is empty or not
@@ -10,6 +11,7 @@ module.exports = {
      * @return {boolean}
      */
     isEmpty: o => Object.keys(o).length === 0,
+
     /**
      * @name findProjectRoot
      * @description walks up the current dir searching for a

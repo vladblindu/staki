@@ -20,3 +20,8 @@ While options, and arguments are specific to each command, the available command
 - [init - Project initialization tool](@commands/init/README.md)
 - [env - Environment variables management tool](@commands/env/README.md)
 - [ver - Package version management tool](@commands/ver/README.md)
+
+TODO: 
+- init - command object implementation
+- pkg manager
+- nav README

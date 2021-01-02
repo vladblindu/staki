@@ -6,10 +6,11 @@ const {add, list, remove, update, createEnv, updateConfig} = require('./actions'
  * @param {string} cmdObj.list
  * @param {string} cmdObj.update
  * @param {string} cmdObj.remove
+ * @param {string} cmdObj.create
  * @param {string} cmdObj.new
  */
 
-module.exports = async (key, val, cmdObj) => {
+const env = async (key, val, cmdObj) => {
     if (cmdObj.add) return add(key, val)
     if (cmdObj.list) return list(key)
     if (cmdObj.remove) return remove(key)
@@ -20,3 +21,5 @@ module.exports = async (key, val, cmdObj) => {
     }
     if (cmdObj.create) await createEnv()
 }
+
+module.exports = env
