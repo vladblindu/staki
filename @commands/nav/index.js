@@ -23,6 +23,7 @@ const nav = async cmdObj => {
     if (cmdObj.root && process.cwd() !== root) {
         console.log(chalk.green('Current work dir', chalk.blue('(Project root):')))
         console.log(root)
+        return process.chdir(root)
     }
 
     const packs = getPackages(root)

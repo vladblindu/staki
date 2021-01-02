@@ -15,4 +15,4 @@ In the process it updates all package.json (if it's a monorepo) data with the co
   https://github.com/vladblindu/test-repo.git
 
 #### Options
- For now no options are available for this command
+ For now, no options are available for this command
