@@ -1,9 +1,9 @@
 const path = require('path')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
-const {getGit, getPackages, getRoot, createRoot, setPackageName, setPackageData, putPackage} = require('./utils')
-const {appName, version, author, licenseTypes, stakiConfig} = require('../_globals/defaults.config')
-
+const {putPackage, getPackages, initStakiConfig} = require('../../_globals/utils')
+const {getGit, getRoot, createRoot, setPackageName, setPackageData} = require('./utils')
+const {appName, version, author, licenseTypes} = require('../../_globals/defaults.config')
 
 const queries = [
     {
@@ -65,7 +65,7 @@ module.exports = async (dir, tpl) => {
         pkg => {
             process.stdout.write(`Processing ./${path.relative(process.cwd(), pkg.path)}...`)
             pkg.data.name = setPackageName(queryData['appName'], pkg)
-            if (!pkg.data['staki']) pkg.data['staki'] = stakiConfig
+            if (!pkg.data['staki']) pkg = initStakiConfig(pkg)
             delete queryData['appName']
             pkg.data = setPackageData(queryData, pkg)
             putPackage(pkg)
@@ -76,5 +76,4 @@ module.exports = async (dir, tpl) => {
     console.log(chalk.green('Setup ready.'))
     if (!local) console.log(`cd into ${path.basename(path.dirname(root))}`)
     console.log('Run "yarn install" to proceed')
-
 }

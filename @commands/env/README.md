@@ -1,6 +1,6 @@
 # env
 ## ENVIRONMENT VARIABLES MANAGEMENT UTILITY
-[#### Back to main page](../README.md)
+[< Back to main page](../../README.md)
 
 The environment utility creates a hidden env-vault file in your home directory
 saving all the env variables you use in staki enabled projects. In your every package.json

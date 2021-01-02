@@ -1,15 +1,24 @@
 const fs = require('fs')
 const path = require('path')
 const {expect} = require('chai')
-const {getEnvVault, putEnvVault, getConfig} = require('../env/utils')
-const {add, update, remove, list, updateConfig} = require('../env/actions')
+const {getEnvVault, putEnvVault, getConfig} = require('../@commands/env/utils')
+const {add, update, remove, list, updateConfig} = require('../@commands/env/actions')
 const {envVaultPath} = require('../_globals/defaults.config')
 
 describe('env', () => {
 
-    process.chdir(
-        path.join(process.cwd(), 'test', '__fixtures__', 'env-test')
-    )
+    let cwd = process.cwd()
+
+    before(() => {
+        process.chdir(
+            path.join(process.cwd(), 'test', '__fixtures__', 'env-test')
+        )
+    })
+
+    after(
+        () => {
+            process.chdir(cwd)
+        })
 
     const testEnv = {
         key1: 'value1',

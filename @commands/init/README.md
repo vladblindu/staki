@@ -1,6 +1,6 @@
 # init
 ## PROJECT INITIALIZATION UTILITY
-[#### Back to main page](../README.md)
+[< Back to main page](../../README.md)
 
 The project initialization creates a new project by cloning a specified project template repo.
 In the process it updates all package.json (if it's a monorepo) data with the console provided values

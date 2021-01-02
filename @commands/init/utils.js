@@ -1,9 +1,7 @@
 const path = require('path')
 const fs = require('fs')
-const glob = require('glob')
 const execa = require('execa')
-const {PKG} = require('../_globals/constants')
-const {starterGitTemplate} = require('../_globals/defaults.config')
+const {starterGitTemplate} = require('../../_globals/defaults.config')
 
 module.exports = {
     /**
@@ -46,33 +44,6 @@ module.exports = {
         }
     },
     /**
-     * @name getPackages
-     * @descripton gets all packages.json from current project in a
-     * {
-     *      path: package.json path
-     *      data: package.json data
-     * }
-     * @param {string} dir
-     * @returns {object}[]}
-     */
-    getPackages: (dir ) => {
-        let packs = []
-        try {
-            packs = glob.sync(`**/${PKG}`, {
-                cwd: dir,
-                absolute: true
-            })
-        } catch (err) {
-            throw new Error('Error reading package.json files. ' + err.message)
-        }
-        if (!packs.length)
-            throw new Error(`Didn't find any package.json files in ${root}`)
-        return packs.map(pkg => ({
-            path: pkg,
-            data: require(pkg)
-        }))
-    },
-    /**
      * @name setPackageName
      * @description creates a monorepo type package naming in a given package.json
      * @param {string} projectName
@@ -97,13 +68,5 @@ module.exports = {
         ({
             ...pkg.data,
             ...data
-        }),
-    /**
-     * @name putPackages
-     * @description write back the modified packages.json file
-     * @param {object} pkg
-     */
-    putPackage: pkg => {
-        fs.writeFileSync(pkg.path, JSON.stringify(pkg.data, null, 2))
-    }
+        })
 }

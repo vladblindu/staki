@@ -9,21 +9,15 @@ const licenseTypes = [
     'UNLICENSED'
 ]
 
-// default package.json staki configuration object
-const stakiConfig = {
-    env: []
-}
-
 // git templates
 const starterGitTemplate = 'https://github.com/vladblindu/test-repo.git'
 
 // env section
-const envVaultPath = process.env.NODE_ENV.toUpperCase() === 'TEST'
+const envVaultPath = process.env.NODE_ENV && process.env.NODE_ENV.toUpperCase() === 'TEST'
     ? path.join(process.cwd(), 'env-vault.json')
     : '~/.env-vault.json'
 
 module.exports = {
-    stakiConfig,
     appName,
     version,
     author,

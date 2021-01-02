@@ -1,10 +1,11 @@
 const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
+const {getPackages} = require('../_globals/utils')
 const {FIXTURES, TEST_PACKAGES_DIR, TEST_NO_PACKAGES_DIR} = require('./constants')
 const {starterGitTemplate} = require('../_globals/defaults.config')
 const {expect} = require('chai')
-const {getRoot, createRoot, getGit, getPackages, setPackageName} = require('../init/utils')
+const {getRoot, createRoot, getGit, setPackageName} = require('../@commands/init/utils')
 
 describe('utils', () => {
 
