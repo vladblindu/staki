@@ -1,104 +1,122 @@
-const {putEnvVault, getEnvVault, undeclaredEnvKey, putEnv, getConfig, putConfig} = require('./utils')
+const {getPackage, putPackage} = require('../../@globals/utils')
+const {cacheEnv, getEnvCache, unregisteredKey, writeEnv, initEnv, addEnvKey} = require('./utils')
+const {throwErr, log} = require('../../@globals/helpers')
 
 /**
  * @name add
- * @description adds an entry to the env-vault
+ * @description adds an entry to the env cache
  * @param {string} key
  * @param {string} val
+ * @param {String?} pth
  */
-const add = (key, val) => {
-    if (!key || !val) throw new Error('No proper key/value pair provided. Exiting.')
-    const env = getEnvVault()
+const add = (key, val, pth) => {
+    if (!key || !val) throwErr('No proper key/value pair provided. Exiting.')
+    const env = getEnvCache(pth)
     if (env[key]) {
-        console.log(`A ${key}/${env[key]} env key/value pair already exists and it's.
+        log(`A ${key}/${env[key]} env key/value pair already exists and it's.
             Use update flag (-u) to update the existing value`)
     }
     env[key] = val
-    putEnvVault(env)
+    cacheEnv(env, pth)
 }
 
 /**
  * @name list
  * @description list an entry if key is present or all
- * entries of the env-vault otherwise
+ * entries of the env cache otherwise
  * @param {string?} [key]
+ * @param {String?} pth
  */
-const list = key => {
-    const env = getEnvVault()
+const list = (key, pth) => {
+    const env = getEnvCache(pth)
     if (key && env[key]) {
-        console.log(`Content of env-vault: \n${key} = ${env[key]}`)
+        log(`Content of env cache: \n${key} = ${env[key]}`)
         return
     }
-    if (key && !env[key]) throw new Error(`No env-vault entries found for key ${key}`)
+    if (key && !env[key]) throwErr(`No env cache entries found for key ${key}`)
     const lst = Object.keys(env).reduce((acc, k, i) => {
         return `${acc}\n${i + 1}. ${k} = ${env[k]}`
-    }, 'Content of env-vault :')
-    console.log(lst)
+    }, 'Content of env cache :')
+    log(lst)
 }
 
 /**
  * @name remove
- * @description removes an entry to the env-vault
+ * @description removes an entry to the env cache
  * @param {string} key
+ * @param {String?} pth
  */
 const
-    remove = (key) => {
-        if (!key) throw new Error('No key provided. Exiting.')
-        const env = getEnvVault()
-        if (!env[key]) throw new Error(`No ${key} present in env-vault. Exiting.`)
+    remove = (key, pth) => {
+        if (!key) throwErr('No key provided. Exiting.')
+        const env = getEnvCache(pth)
+        if (!env[key]) throwErr(`No ${key} present in env cache. Exiting.`)
         delete env[key]
-        putEnvVault(env)
+        cacheEnv(env, pth)
     }
 
 /**
  * @name update
- * @description updates an entry to the env-vault
+ * @description updates an entry to the env cache
  * @param {string} key
  * @param {string} val
+ * @param {String?} pth
  */
-const update = (key, val) => {
+const update = (key, val, pth) => {
     if (!key || !val) {
         console.error('No proper key/value pair provided. Exiting.')
         return 0
     }
-    const env = getEnvVault()
+    const env = getEnvCache(pth)
     if (!env[key]) {
-        console.log(`No ${key} present in env-vault. Exiting.`)
+        log(`No ${key} present in env cache. Exiting.`)
         process.exit(0)
     }
     env[key] = val
-    putEnvVault(env)
+    cacheEnv(env, pth)
 }
 
 /**
  * @name createEnv
  * @description creates a .env file out of the keys specified
- * in the staki.config.js file from the values in the env-vault.json file
+ * in the staki.config.js file from the values in the env cache.json file
+ * @param {string?} root
+ * @param {String?} pth
  */
-const createEnv = async (root = process.cwd()) => {
-    const pkg = getConfig(root)
-    const envVault = getEnvVault()
+const createEnv = async (root = process.cwd(), pth) => {
+    const pkg = getPackage(root)
+    const envVault = getEnvCache(pth)
     const env = await Promise.all(
         pkg['staki'].env.map(
             async k => {
                 if (!envVault[k]) {
-                    const queryData = await undeclaredEnvKey(k)
+                    const queryData = await unregisteredKey(k)
                     if (queryData['save']) add(k, queryData['value'])
                     return `${k}=${queryData['value']}`
                 } else
                     return Promise.resolve(`${k}=${envVault[k]}`)
             }
         ))
-    putEnv(
-        `# Environment variables\n #for ${pkg.name}\n`.concat(env.join('\n'))
+    writeEnv(
+        `# Environment variables\n #for ${pkg['name']}\n`.concat(env.join('\n')),
+        pth
     )
 }
 
+/**
+ * @name updateConfig,
+ * @description adds a env key to package.json's env config property
+ * @param {String} key
+ */
 const updateConfig = key => {
-    const pkg = getConfig()
-    if(pkg['staki'].env[key])
-        pkg['staki'].env.push(key)
-    putConfig(pkg)
+    let {path, data} = getPackage()
+    putPackage({
+        path,
+        data: addEnvKey(
+            initEnv(data),
+            key
+        )
+    })
 }
 
 module.exports = {

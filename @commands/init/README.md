@@ -1,4 +1,4 @@
-# init
+# initAction
 ## PROJECT INITIALIZATION UTILITY
 [< Back to main page](../../README.md)
 
@@ -7,7 +7,7 @@ In the process it updates all package.json (if it's a monorepo) data with the co
 
 ### Usage
 ```shell
-    staki init [options] [dir] [tpl]
+    staki initAction [options] [dir] [tpl]
 ```
 - \[dir] the root directory of the project
   If dir is . or not specified the utility assumes the current directory as the target's root

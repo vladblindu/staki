@@ -10,5 +10,5 @@ const testEnv = {
 }
 
 fs.writeFileSync(
-    path.join(__dirname, './env-vault.json'),
+    path.join(__dirname, './env cache.json'),
     JSON.stringify(testEnv, null, 2))

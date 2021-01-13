@@ -10,6 +10,13 @@ const {add, list, remove, update, createEnv, updateConfig} = require('./actions'
  * @param {string} cmdObj.new
  */
 
+/**
+ *
+ * @param {String} key
+ * @param {String} val
+ * @param {Object} cmdObj
+ * @returns {void}
+ */
 const env = async (key, val, cmdObj) => {
     if (cmdObj.add) return add(key, val)
     if (cmdObj.list) return list(key)

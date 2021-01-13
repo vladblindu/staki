@@ -13,8 +13,7 @@
     "commander": "^6.2.1",
     "execa": "^5.0.0",
     "glob": "^7.1.6",
-    "inquirer": "^7.3.3",
-    "pkg-up": "^3.1.0"
+    "inquirer": "^7.3.3"
   },
   "scripts": {
     "test": "NODE_ENV=TEST mocha test/*.specs.js",

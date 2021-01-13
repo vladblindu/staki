@@ -1,21 +1,23 @@
 const chalk = require('chalk')
 const path = require('path')
-const {isEmpty} = require('../../_globals/helpers')
-const {SEMVER_REGEXP, PKG} = require('../../_globals/constants')
+const {log} = require('../../@globals/helpers')
+const {throwErr} = require('../../@globals/helpers')
+const {isEmpty} = require('../../@globals/helpers')
+const {SEMVER_REGEXP, PKG} = require('../../@globals/constants')
 
 module.exports = {
     /**
      * @name list
-     * @description list the curent version of provided package.json`s
+     * @description list the current version of provided package.json`s
      * @param {{path:string, data:object}[]} packs
      */
     list: packs => {
-        console.log('Version listing:')
-        console.log(`root: ${chalk.blue(process.cwd())}\n`)
+        log('Version listing:')
+        log(`root: ${chalk.blue(process.cwd())}\n`)
         packs.forEach(pkg => {
-            console.log(`package name: ${chalk.green(pkg.data.name)}`)
-            console.log(`path: ${chalk.blue(path.relative(process.cwd(), pkg.path) || '.')}`)
-            console.log(`version: ${chalk.green(pkg.data.version)}\n`)
+            log(`package name: ${chalk.green(pkg.data.name)}`)
+            log(`path: ${chalk.blue(path.relative(process.cwd(), pkg.path) || '.')}`)
+            log(`version: ${chalk.green(pkg.data.version)}\n`)
         })
     },
     /**
@@ -33,18 +35,18 @@ module.exports = {
 
         const modify = (str, inc) => {
             let nr = parseInt(str)
-            if (!nr && !inc) throw new Error('Csn not decrement version descriptor if it`s value is 0')
+            if (!nr && !inc) throwErr('Csn not decrement version descriptor if it`s value is 0')
             return inc ? ++nr : --nr
         }
 
         if (opts && opts.version) {
             if (!SEMVER_REGEXP.test(opts.version))
-                throw new Error(`${opts.version} is not a valid semver format\n(major.minor.patch - ex: 2.3.14), which is not supported.`)
+                throwErr(`${opts.version} is not a valid semver format\n(major.minor.patch - ex: 2.3.14), which is not supported.`)
             pkg.version = opts.version
             return pkg
         }
         if (!SEMVER_REGEXP.test(pkg.version))
-            throw new Error(`${pkg.name}'s ${PKG} version (${pkg.version}) is not a valid semver format\n(major.minor.patch - ex: 2.3.14), which is not supported.`)
+            throwErr(`${pkg.name}'s ${PKG} version (${pkg.version}) is not a valid semver format\n(major.minor.patch - ex: 2.3.14), which is not supported.`)
 
         if (!opts || isEmpty(opts))
             opts = {patch: true, inc: true}

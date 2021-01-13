@@ -1,4 +1,4 @@
-const {getPackages, getPackage, putPackage} = require('../../_globals/utils')
+const {getPackages, getPackage, putPackage} = require('../../@globals/utils')
 const {setVersion, list} = require('./actions')
 
 /**

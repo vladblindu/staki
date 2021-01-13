@@ -17,11 +17,11 @@ General usage format is:
 ```
 While options, and arguments are specific to each command, the available commands are listed bellow:
 
-- [init - Project initialization tool](@commands/init/README.md)
+- [initAction - Project initialization tool](@commands/initAction/README.md)
 - [env - Environment variables management tool](@commands/env/README.md)
 - [ver - Package version management tool](@commands/ver/README.md)
 
 TODO: 
-- init - command object implementation
+- initAction - command object implementation
 - pkg manager
 - nav README
