@@ -24,7 +24,7 @@ list the current version of provided package.json`s
 | --- | --- |
 | packs | <code>Array.&lt;Package&gt;</code> | 
 
-<section id="setVersion"></section>
+<a name="setVersion"></a>
 
 ## setVersion(pkg, opts) ⇒ <code>object</code>
 **Kind**: global function  
