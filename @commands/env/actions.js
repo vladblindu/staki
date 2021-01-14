@@ -1,3 +1,7 @@
+/**
+ * @module actions
+ * @description env module specific actions
+ */
 const {getPackage, putPackage} = require('../../@globals/utils')
 const {cacheEnv, getEnvCache, unregisteredKey, writeEnv, initEnv, addEnvKey} = require('./utils')
 const {throwErr, log} = require('../../@globals/helpers')
@@ -104,7 +108,7 @@ const createEnv = async (root = process.cwd(), pth) => {
 }
 
 /**
- * @name updateConfig,
+ * @name updateConfig
  * @description adds a env key to package.json's env config property
  * @param {String} key
  */
