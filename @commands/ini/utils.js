@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const {throwErr} = require('../../@globals/helpers')
+const {throwErr} = require('../../lib/helpers')
 
 /**
  * @name getRoot

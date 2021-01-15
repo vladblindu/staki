@@ -2,9 +2,9 @@
  * @module actions
  * @description env module specific actions
  */
-const {getPackage, putPackage} = require('../../@globals/utils')
+const {getPackage, putPackage} = require('../../lib/utils')
 const {cacheEnv, getEnvCache, unregisteredKey, writeEnv, initEnv, addEnvKey} = require('./utils')
-const {throwErr, log} = require('../../@globals/helpers')
+const {throwErr, log} = require('../../lib/helpers')
 
 /**
  * @name add

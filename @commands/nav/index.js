@@ -1,24 +1,43 @@
+/**
+ * @module navigation
+ * @category command
+ * @description monorepo inter project/root navigation helpers
+ * @file nav/index.js
+ */
+
 const {back, goToRoot, navToPkg, setCurrent} = require('./actions')
 
 /**
- * @name nav
- * @description project dir navigation command utility
- * @param {Object} cmdObj
- * @param {boolean} cmdObj.back
- * @param {boolean} cmdObj.root
- * @param {boolean} cmdObj.set
- * @return {Promise<void>}
+ * @typedef {Object} NavCmdObj
+ * @property {boolean} back
+ * @property {boolean} root
+ * @property {boolean} set
  */
 
-const nav = async cmdObj => {
+module.exports = {
+    short: 'nav',
+    long: 'navigation',
+    command: 'nav',
+    description: [
+        'nav command'
+    ],
+    option: [
+        ['-s, --set', 'Sets the current project as default.'],
+        ['-b, --back', 'Return (set process.cwd) to the default project'],
+        ['-r, --root', 'Navigate (set process.cwd) to project root']
+    ],
 
-    if (cmdObj.back) return back()
+    /**
+     * @name action
+     * @description project dir navigation command utility
+     * @param {NavCmdObj} cmdObj
+     * @return {Promise<void>}
+     */
 
-    if (cmdObj.root) return goToRoot()
-
-    if (cmdObj.set) return setCurrent()
-
-    await navToPkg()
+    action: async cmdObj => {
+        if (cmdObj.back) return back()
+        if (cmdObj.root) return goToRoot()
+        if (cmdObj.set) return setCurrent()
+        await navToPkg()
+    }
 }
-
-module.exports = nav

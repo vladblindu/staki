@@ -2,7 +2,7 @@ const path = require('path')
 const locales = require('../../@resources/locales/locales.json')
 const fs = require('fs')
 const {LOCALES_FILE_PATH, FLAGS_PATH, FLAG_EXTENSION, SECTION, IMG_BASE64} = require('./constants')
-const {throwErr, readJson, dashToCamel} = require('../../@globals/helpers')
+const {throwErr, readJson, dashToCamel} = require('../../lib/helpers')
 
 /**
  * @name langList

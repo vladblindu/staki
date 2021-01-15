@@ -2,10 +2,10 @@ const path = require('path')
 const fs = require('fs')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
-const {getPackages} = require('../../@globals/utils')
-const {warn, throwErr, log, findMonoRepoRoot, findProjectRoot, interactiveFail} = require('../../@globals/helpers')
+const {getPackages} = require('../../lib/utils')
+const {warn, throwErr, log, findMonoRepoRoot, findProjectRoot, interactiveFail} = require('../../lib/helpers')
 const {cache} = require('./constants')
-const {GREEN} = require('../../@globals/constants')
+const {GREEN} = require('../../lib/constants')
 
 const cachePth = path.join(__dirname, cache)
 

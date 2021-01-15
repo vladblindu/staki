@@ -2,9 +2,9 @@ const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
 const {expect} = require('chai')
-const {getGit, setPackageName} = require('../../@commands/init/actions')
+const {getGit, setPackageName} = require('../../@commands/ini/actions')
 const {setTestDir, dirCleanup} = require('../helpers')
-const {getRoot, createRoot} = require('../../@commands/init/utils')
+const {getRoot, createRoot} = require('../../@commands/ini/utils')
 
 describe('init', () => {
 
@@ -20,7 +20,7 @@ describe('init', () => {
 
     describe('getRoot', () => {
 
-        const initDir = 'init-dir'
+        const initDir = 'ini-dir'
         const workDir = path.join(testDir, initDir)
 
         afterEach(() => {
@@ -40,7 +40,7 @@ describe('init', () => {
 
     describe('createRoot', () => {
 
-        const initDir = 'init-dir'
+        const initDir = 'ini-dir'
         const workDir = path.join(testDir, initDir)
 
         afterEach(() => {
@@ -66,7 +66,7 @@ describe('init', () => {
     })
 
     describe('getGit', () => {
-        const initDir = 'init-dir'
+        const initDir = 'ini-dir'
         const workDir = path.join(testDir, initDir)
 
         afterEach(() => {

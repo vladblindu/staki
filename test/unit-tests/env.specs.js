@@ -5,7 +5,7 @@ const {getEnvCache, cacheEnv} = require('../../@commands/env/utils')
 const {add, update, remove, list, updateConfig} = require('../../@commands/env/actions')
 const {setTestDir, mockConsole, fileCleanup} = require('../helpers')
 const {cacheFileName} = require('../../@commands/env/constants')
-const {PKG, STAKI} = require('../../@globals/constants')
+const {PKG, STAKI} = require('../../lib/constants')
 
 describe('env', () => {
 

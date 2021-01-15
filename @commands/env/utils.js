@@ -1,8 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 const inquirer = require('inquirer')
-const {STAKI} = require('../../@globals/constants')
-const {throwErr, warn, interactiveFail} = require('../../@globals/helpers')
+const {STAKI} = require('../../lib/constants')
+const {throwErr, warn, interactiveFail} = require('../../lib/helpers')
 const {cachePath} = require('./constants')
 
 /**

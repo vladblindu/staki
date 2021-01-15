@@ -1,10 +1,10 @@
 const execa = require('execa')
 const path = require('path')
-const {putPackage} = require('../../@globals/utils')
+const {putPackage} = require('../../lib/utils')
 const {createRoot, getRoot} = require('./utils')
 const {starterGitTemplate} = require('./config')
-const {inline, throwErr, log, logOK} = require('../../@globals/helpers')
-const {GREEN, STAKI} = require('../../@globals/constants')
+const {inline, throwErr, log, logOK} = require('../../lib/helpers')
+const {GREEN, STAKI} = require('../../lib/constants')
 
 
 /**

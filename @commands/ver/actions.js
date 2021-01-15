@@ -1,13 +1,12 @@
-/**
- * @custom-tag my custom tag
- */
+const chalk = require('chalk')
+const {SEMVER_REGEXP, PKG} = require('../../lib/constants')
+const {isEmpty} = require('../../lib/helpers')
 
 /**
  * @type {Object} Package
  * @property {String} path
  * @property {Object} data
  */
-
 
 /**
  * @name list
@@ -71,7 +70,7 @@ const setVersion = (pkg, opts) => {
     return pkg
 }
 
-module.esports = {
+module.exports = {
     list,
     setVersion
 }

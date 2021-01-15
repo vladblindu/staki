@@ -3,7 +3,7 @@ const {expect} = require('chai')
 const inquirer = require('inquirer')
 const fs = require('fs')
 const {langList, getComponent} = require('../../../@commands/str/helpers')
-const {STAKI, STRINGER, SECTION} = require('../../../@globals/constants')
+const {STAKI, STRINGER, SECTION} = require('../../../lib/constants')
 const {setTestDir, mockConsole, mockInteractive} = require('../../helpers')
 
 describe('str-helpers', () => {

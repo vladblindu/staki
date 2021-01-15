@@ -1,7 +1,7 @@
 const path = require('path')
 const {expect} = require('chai')
-const {findMonoRepoRoot, cond, pkgTreeUp, pick, omit, dashToCamel} = require('../../../@globals/helpers')
-const {PACKAGES_ROOT, PKG} = require('../../../@globals/constants')
+const {findMonoRepoRoot, cond, pkgTreeUp, pick, omit, dashToCamel} = require('../../../lib/helpers')
+const {PACKAGES_ROOT, PKG} = require('../../../lib/constants')
 const {setTestDir, fileCleanup, getPkg} = require('../../helpers')
 
 describe('helpers', () => {

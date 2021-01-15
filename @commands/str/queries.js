@@ -1,4 +1,4 @@
-const {readJson} = require('../../@globals/helpers')
+const {readJson} = require('../../lib/helpers')
 const {langList, selectedLangs} = require('./helpers')
 const {
     defaultLangs,

@@ -4,9 +4,9 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const {langList} = require('../../../@commands/str/helpers')
 const Strings = require('../../../@commands/str/strings.class')
-const {pick, isEmpty} = require('../../../@globals/helpers')
+const {pick, isEmpty} = require('../../../lib/helpers')
 const {BASE_NAME, META_FILE_NAME, CONFIG_ROOT} = require('../../../@commands/str/constants')
-const {STAKI, STRINGER, PKG, PACKAGES_ROOT} = require('../../../@globals/constants')
+const {STAKI, STRINGER, PKG, PACKAGES_ROOT} = require('../../../lib/constants')
 const {setTestDir, mockConsole, mockInteractive, mkTestDir, testReadJson} = require('../../helpers')
 
 describe('strings class', () => {

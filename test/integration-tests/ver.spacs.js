@@ -2,7 +2,7 @@ const path = require('path')
 const {expect} = require('chai')
 const ver = require('../../@commands/ver')
 const {setTestDir, getPkg, fileCleanup, writePkg, mockConsole} = require('../helpers')
-const {PKG} = require('../../@globals/constants')
+const {PKG} = require('../../lib/constants')
 
 const suite = 'ver-test'
 

@@ -17,7 +17,7 @@
     "jsdoc-to-markdown": "^6.0.1"
   },
   "scripts": {
-    "test": "NODE_ENV=TEST mocha test/*.specs.js",
+    "test": "NODE_ENV=TEST mocha test/**/*.specs.js",
     "mk-env-test": "node ./test/__fixtures__/env-test/create-test-env.js"
   },
   "devDependencies": {

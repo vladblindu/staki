@@ -4,7 +4,7 @@ const glob = require('glob')
 const chalk = require('chalk')
 const {flagConvert, getSection} = require('./helpers')
 const {secondaryQuery, primaryQuery} = require('./queries')
-const {getPackage, putPackage, setupDir} = require('../../@globals/utils')
+const {getPackage, putPackage, setupDir} = require('../../lib/utils')
 const {
     throwErr,
     interactiveFail,
@@ -14,7 +14,7 @@ const {
     logOK,
     silentMkDir,
     isEmpty
-} = require('../../@globals/helpers')
+} = require('../../lib/helpers')
 const {
     GLOB_PATTERN,
     LOCALES_FILE_PATH,
@@ -30,7 +30,7 @@ const {
     PACKAGES_ROOT,
     STAKI,
     STRINGER
-} = require('../../@globals/constants')
+} = require('../../lib/constants')
 
 /**
  * @typedef {Object} FileData
@@ -315,7 +315,7 @@ class Strings {
     }
 
     /**
-     * @method init
+     * @method ini
      * @param {Boolean} verbose
      * @returns {Promise<void>}
      */
