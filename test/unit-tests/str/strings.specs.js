@@ -188,4 +188,109 @@ describe('strings class', () => {
                 .to.not.throw()
         })
     })
+
+    describe('_parse method', () => {
+        const [testDir, cwd, resetCwd] = setTestDir('str-test')
+
+        beforeEach(() => {
+            cwd(path.join('packages', 'package1'))
+
+        })
+
+        afterEach(() => {
+            resetCwd()
+        })
+
+        it('should create valid a lang data structure', () => {
+            strings._langs = ['en', 'ro']
+            strings._srcRoot = 'src'
+
+            const expected = {
+                en: {
+                    'comp1.key1-comp1-pack1': 'en-val1',
+                    'comp1.key2-comp1-pack1': 'en-val2',
+                    'comp2.key1--comp2-pack1': 'en-val1',
+                    'comp2.key2--comp2-pack1': 'en-val2',
+                    'comp3.key1-comp-int-pack1': 'en-val1',
+                    'comp3.key2-comp-int-pack1': 'en-val2',
+                    'src.key1-comp-int-pack1': 'en-val1',
+                    'src.key2-comp-int-pack1': 'en-val2'
+                },
+                ro: {
+                    'comp1.key1-comp1-pack1': 'ro-val1',
+                    'comp1.key2-comp1-pack1': 'ro-val2',
+                    'comp2.key1--comp2-pack1': 'ro-val1',
+                    'comp2.key2--comp2-pack1': 'ro-val2',
+                    'comp3.key1-comp-int-pack1': 'ro-val1',
+                    'comp3.key2-comp-int-pack1': 'ro-val2',
+                    'src.key1-comp-int-pack1': 'ro-val1',
+                    'src.key2-comp-int-pack1': 'ro-val2'
+                }
+            }
+            expect(strings._parse()).to.deep.equal(expected)
+        })
+    })
+
+    describe('_putLangFiles method', () => {
+        const testDestRoot = 'public/strings'
+        const [testDir, cwd, resetCwd] = setTestDir('str-test')
+        const [mkDestRoot, cleanupDestRoot] = mkTestDir(testDestRoot)
+        cleanupDestRoot()
+
+        beforeEach(() => {
+            cwd(path.join('packages', 'package1'))
+            mkDestRoot()
+        })
+
+        afterEach(() => {
+            resetCwd()
+            cleanupDestRoot()
+        })
+
+        it('should create the valid lang files', () => {
+            strings._destRoot = testDestRoot
+            strings._defaultLang = 'en'
+            strings._putLangsFiles({
+                en: {key: 'value-en'},
+                ro: {key: 'value-ro'}
+            })
+            const enFile = testReadJson(
+                path.join(process.cwd(), testDestRoot, 'en.json'))
+            const roFile = testReadJson(
+                path.join(process.cwd(), testDestRoot, 'ro.json'))
+            expect(enFile['key']).to.equal('value-en')
+            expect(roFile['key']).to.equal('value-ro')
+        })
+    })
+
+    describe('_putInitialStrings method', () => {
+
+        const testConfigRoot = '@config/strings'
+        const [testDir, cwd, resetCwd] = setTestDir('str-test')
+        const [mkDestRoot, cleanupDestRoot] = mkTestDir(testConfigRoot)
+        cleanupDestRoot()
+
+        beforeEach(() => {
+            cwd(path.join('packages', 'package1'))
+            mkDestRoot()
+        })
+
+        afterEach(() => {
+            resetCwd()
+            cleanupDestRoot()
+        })
+
+        it('should create the valid lang files', () => {
+
+            strings._configRoot = testConfigRoot
+            strings._defaultLang = 'en'
+            strings._putInitialStrings({
+                en: {key: 'value-en'},
+                ro: {key: 'value-ro'}
+            })
+            const initFile = testReadJson(
+                path.join(process.cwd(), testConfigRoot, 'initial.strings.json'))
+            expect(initFile['key']).to.equal('value-en')
+        })
+    })
 })

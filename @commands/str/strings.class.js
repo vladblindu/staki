@@ -242,6 +242,7 @@ class Strings {
      * @method _validate
      * @param {FileData} fileData
      * @private
+     * @tested
      */
     _validate(fileData) {
         this._langs.forEach(lng => {
@@ -255,6 +256,7 @@ class Strings {
      * @method parse
      * @returns {Object}
      * @private
+     * @tested
      */
     _parse() {
         // 1. glob the strings files
@@ -267,9 +269,12 @@ class Strings {
                 // 4. and for each project lang
                 this._langs.forEach(
                     lng => {
+                        if(!acc[lng]) acc[lng] = {}
                         // 5. store in the acc the [section.key] data for each language
-                        Object.keys(fileData.content).forEach(
-                            k => acc[lng][fileData.section.concat('.', k)] = fileData.content[k]
+                        Object.keys(fileData.content[lng]).forEach(
+                            k => {
+                                acc[lng][fileData.section.concat('.', k)] = fileData.content[lng][k]
+                            }
                         )
                     })
                 logOK()
@@ -285,9 +290,9 @@ class Strings {
     _putLangsFiles(langData) {
         this._langs.forEach(
             lng => {
-                inline(`Writing ${path.join(this._destRoot, lng.concat(LANG_FILE_EXTENSION))}`)
+                inline(`Writing ${path.join(this._destRoot, lng.concat('.',LANG_FILE_EXTENSION))}`)
                 writeJson(
-                    path.join(process.cwd(), this._destRoot, lng.concat(LANG_FILE_EXTENSION)),
+                    path.join(process.cwd(), this._destRoot, lng.concat('.', LANG_FILE_EXTENSION)),
                     langData[lng]
                 )
                 logOK()
@@ -303,7 +308,7 @@ class Strings {
     _putInitialStrings(langData) {
         inline(`Writing the initial.${BASE_NAME}.${LANG_FILE_EXTENSION}...`)
         writeJson(
-            path.join(process.cwd(), this._destRoot, INITIAL_STRINGS_FILE),
+            path.join(process.cwd(), this._configRoot, INITIAL_STRINGS_FILE),
             langData[this._defaultLang]
         )
         logOK()

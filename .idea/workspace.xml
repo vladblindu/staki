@@ -5,10 +5,15 @@
     <option name="CUSTOM_SCOPE_NAME" value="exclude-fixtures" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27eef59a-9a41-4269-a7e2-f422d90c9954" name="Default Changelist" comment="str - ready">
+    <list default="true" id="27eef59a-9a41-4269-a7e2-f422d90c9954" name="Default Changelist" comment="str - ready - tested">
+      <change afterPath="$PROJECT_DIR$/test/__fixtures__/str-test/packages/package1/@config/strings/initial.strings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/__fixtures__/str-test/packages/package1/public/strings/en.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/__fixtures__/str-test/packages/package1/public/strings/ro.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@commands/str/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/@commands/str/helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/@commands/str/strings.class.js" beforeDir="false" afterPath="$PROJECT_DIR$/@commands/str/strings.class.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__fixtures__/str-test/packages/package1/public/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/test/__fixtures__/str-test/packages/package1/public/locales/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__fixtures__/str-test/packages/package1/public/locales/ro.json" beforeDir="false" afterPath="$PROJECT_DIR$/test/__fixtures__/str-test/packages/package1/public/locales/ro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/unit-tests/str/strings.specs.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit-tests/str/strings.specs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,11 +81,51 @@
       <recent name="$PROJECT_DIR$/test/__fixtures__/globals-test" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.strings class._validate method.should not throw if all keys are present">
+  <component name="RunManager" selected="Mocha.strings class._putInitialStrings method.should create the valid lang files">
     <configuration name="str init test" type="NodeJSConfigurationType" application-parameters="str -i" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$/test/__fixtures__/str-test/packages/package1">
       <method v="2" />
     </configuration>
-    <configuration name="strings class" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="strings class._parse method.should create valid a lang data structure" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs>
+        <env name="NODE_ENV" value="TEST" />
+      </envs>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/unit-tests/str/strings.specs.js</test-file>
+      <test-names>
+        <name value="strings class" />
+        <name value="_parse method" />
+        <name value="should create valid a lang data structure" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="strings class._putInitialStrings method.should create the valid lang files" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs>
+        <env name="NODE_ENV" value="TEST" />
+      </envs>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/unit-tests/str/strings.specs.js</test-file>
+      <test-names>
+        <name value="strings class" />
+        <name value="_putInitialStrings method" />
+        <name value="should create the valid lang files" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="strings class._putLangFiles method" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -95,10 +140,11 @@
       <test-file>$PROJECT_DIR$/test/unit-tests/str/strings.specs.js</test-file>
       <test-names>
         <name value="strings class" />
+        <name value="_putLangFiles method" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="strings class._collectFiles method._should return the right array of file data" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="strings class._putLangFiles method.should create the valid lang files" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -113,28 +159,8 @@
       <test-file>$PROJECT_DIR$/test/unit-tests/str/strings.specs.js</test-file>
       <test-names>
         <name value="strings class" />
-        <name value="_collectFiles method" />
-        <name value="_should return the right array of file data" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="strings class._setup method.should throw if pkg is a monorepo root" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs>
-        <env name="NODE_ENV" value="TEST" />
-      </envs>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/unit-tests/str/strings.specs.js</test-file>
-      <test-names>
-        <name value="strings class" />
-        <name value="_setup method" />
-        <name value="should throw if pkg is a monorepo root" />
+        <name value="_putLangFiles method" />
+        <name value="should create the valid lang files" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -158,45 +184,25 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="strings class._validate method.should throw if no lang key present" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs>
-        <env name="NODE_ENV" value="TEST" />
-      </envs>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/unit-tests/str/strings.specs.js</test-file>
-      <test-names>
-        <name value="strings class" />
-        <name value="_validate method" />
-        <name value="should throw if no lang key present" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Node.js.str init test" />
       <item itemvalue="Node.js.str test init - fail for root" />
       <item itemvalue="Node.js.nav test" />
       <item itemvalue="Node.js.nav test root" />
       <item itemvalue="Node.js.ver test" />
-      <item itemvalue="Mocha.strings class._setup method.should throw if pkg is a monorepo root" />
-      <item itemvalue="Mocha.strings class._collectFiles method._should return the right array of file data" />
-      <item itemvalue="Mocha.strings class._validate method.should throw if no lang key present" />
-      <item itemvalue="Mocha.strings class" />
       <item itemvalue="Mocha.strings class._validate method.should not throw if all keys are present" />
+      <item itemvalue="Mocha.strings class._parse method.should create valid a lang data structure" />
+      <item itemvalue="Mocha.strings class._putLangFiles method.should create the valid lang files" />
+      <item itemvalue="Mocha.strings class._putLangFiles method" />
+      <item itemvalue="Mocha.strings class._putInitialStrings method.should create the valid lang files" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.strings class._putInitialStrings method.should create the valid lang files" />
+        <item itemvalue="Mocha.strings class._putLangFiles method.should create the valid lang files" />
+        <item itemvalue="Mocha.strings class._putLangFiles method" />
+        <item itemvalue="Mocha.strings class._parse method.should create valid a lang data structure" />
         <item itemvalue="Mocha.strings class._validate method.should not throw if all keys are present" />
-        <item itemvalue="Mocha.strings class" />
-        <item itemvalue="Mocha.strings class._validate method.should throw if no lang key present" />
-        <item itemvalue="Mocha.strings class._collectFiles method._should return the right array of file data" />
-        <item itemvalue="Mocha.strings class._setup method.should throw if pkg is a monorepo root" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +227,7 @@
       <workItem from="1610447450979" duration="16572000" />
       <workItem from="1610555607854" duration="7413000" />
       <workItem from="1610613796753" duration="15003000" />
-      <workItem from="1610647812583" duration="14046000" />
+      <workItem from="1610647812583" duration="18721000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1609415206835</created>
@@ -279,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610703179726</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="str - ready - tested">
+      <created>1610705400674</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610705400674</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +316,8 @@
     <MESSAGE value="added nav command" />
     <MESSAGE value="str - unfinished" />
     <MESSAGE value="str - ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="str - ready" />
+    <MESSAGE value="str - ready - tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="str - ready - tested" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

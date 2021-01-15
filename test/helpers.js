@@ -140,7 +140,7 @@ const mkTestDir = dir => {
         },
         () => {
             const cwd = path.join(process.cwd(), dir)
-            if(!fs.existsSync(cwd)) fs.rmdirSync(cwd, {recursive: true})
+            if(fs.existsSync(cwd)) fs.rmdirSync(cwd, {recursive: true})
         }
     ]
 }
