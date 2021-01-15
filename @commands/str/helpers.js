@@ -40,7 +40,7 @@ const flagConvert = flag => {
  */
 const getSection = (pth, cont) => {
     if (cont[SECTION]) return cont[SECTION]
-    const bits = pth.split('.')
+    const bits = path.basename(pth).split('.')
     if (bits.length > 2) return dashToCamel(bits[0])
     return dashToCamel(
         path.basename(

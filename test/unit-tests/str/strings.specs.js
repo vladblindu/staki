@@ -4,7 +4,7 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const {langList} = require('../../../@commands/str/helpers')
 const Strings = require('../../../@commands/str/strings.class')
-const {pick} = require('../../../@globals/helpers')
+const {pick, isEmpty} = require('../../../@globals/helpers')
 const {BASE_NAME, META_FILE_NAME, CONFIG_ROOT} = require('../../../@commands/str/constants')
 const {STAKI, STRINGER, PKG, PACKAGES_ROOT} = require('../../../@globals/constants')
 const {setTestDir, mockConsole, mockInteractive, mkTestDir, testReadJson} = require('../../helpers')
@@ -28,7 +28,7 @@ describe('strings class', () => {
         return acc
     }, {})
 
-    const populate = (o, data) =>  {
+    const populate = (o, data) => {
         Object.keys(data).forEach(
             k => o['_' + k] = k === CONFIG_ROOT
                 ? path.join(data[k], BASE_NAME)
@@ -120,6 +120,72 @@ describe('strings class', () => {
                 return err.message.indexOf('mono-repo root') !== -1 &&
                     err.message.indexOf('test-pkg') !== -1
             })
+        })
+    })
+
+    describe('_collectFiles method', () => {
+
+        const [testDir, cwd, resetCwd] = setTestDir('str-test')
+
+        beforeEach(() => {
+            cwd(path.join('packages', 'package1'))
+        })
+
+        afterEach(() => {
+            resetCwd()
+        })
+
+        it('_should return the right array of file data', () => {
+            strings._srcRoot = 'src'
+            const expected = [
+                {path: 'src/comp1/strings.json', section: 'comp1'},
+                {path: 'src/comp2/strings.json', section: 'comp2'},
+                {path: 'src/comp3/comp3.strings.json', section: 'comp3'},
+                {path: 'src/strings.json', section: 'src'}
+            ]
+            const actual = strings._collectFiles()
+            expect(!isEmpty(actual[0].content['en'])).to.be.true
+            expect(!isEmpty(actual[0].content['ro'])).to.be.true
+            expect(actual.map(fd => {
+                delete fd.content
+                return fd
+            })).to.deep.equal(expected)
+        })
+    })
+
+    describe('_validate method', () => {
+
+        strings._langs = ['en', 'ro']
+
+        it('should throw if no lang key present', () => {
+            const testFl = {
+                content: {
+                    no: {
+                        key: 'value'
+                    }
+                }
+            }
+
+            expect(() => strings._validate(testFl))
+                .to.throw(Error)
+                .that.satisfies(err =>
+                err.message.indexOf('file has a missing "en" key') !== -1
+            )
+        })
+        it('should not throw if all keys are present', () => {
+            const testFl = {
+                content: {
+                    en: {
+                        key: 'value'
+                    },
+                    ro: {
+                        key: 'value'
+                    }
+                }
+            }
+
+            expect(() => strings._validate(testFl))
+                .to.not.throw()
         })
     })
 })

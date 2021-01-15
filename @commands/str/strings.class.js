@@ -79,6 +79,15 @@ class Strings {
     }
 
     /**
+     * @method roots
+     * @returns {String[]}
+     * @no-test
+     */
+    get roots() {
+        return [this._srcRoot, this._destRoot, this._configRoot]
+    }
+
+    /**
      * @method _setupDir
      * @returns {Promise<void>}
      * @private
@@ -175,18 +184,10 @@ class Strings {
     }
 
     /**
-     * @method roots
-     * @returns {String[]}
-     * @no-test
-     */
-    get roots() {
-        return [this._srcRoot, this._destRoot, this._configRoot]
-    }
-
-    /**
      * @method _getQueriesData
      * @returns {QueriesData}
      * @private
+     * @no-test
      */
     async _getQueriesData() {
         const locales = this._getLocales()
@@ -209,6 +210,7 @@ class Strings {
      * @method _collectFiles
      * @private
      * @returns {FileData[]}
+     * @tested
      */
     _collectFiles() {
         // solve the cwd
@@ -220,6 +222,9 @@ class Strings {
             cwd: root,
             absolute: true
         })
+
+        if(!filePaths.length)
+            throwErr(`No strings files found in: ${root}`)
 
         return filePaths.map(
             filePath => {
@@ -242,7 +247,7 @@ class Strings {
         this._langs.forEach(lng => {
             // check for missing language entries
             if (!fileData.content[lng])
-                throwErr(`${fileData.path} ${BASE_NAME} file has a missing ${lng} key. Please fix and rescan`)
+                throwErr(`${fileData.path} ${BASE_NAME} file has a missing "${lng}" key. Please fix and rescan`)
         })
     }
 
