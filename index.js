@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/local/bin/node
 
 const cli = require('commander')
 const chalk = require('chalk')
