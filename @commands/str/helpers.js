@@ -32,21 +32,6 @@ const flagConvert = flag => {
 }
 
 /**
- * @name suspiciousKeys
- * @description if suspicious looking keys are found an error is thrown
- * @param {Object} strFile
- * @param {String} strFile.path
- * @param {Object} strFile.strings
- * @param {String} strFile.component
- */
-const suspiciousKeys = strFile => {
-    const tmp = Object.keys(strFile.strings).filter(k => k.length !== 2)
-    if (tmp.length)
-        throwErr(`Something is wrong with the ${strFile.component}'s strings from the ${strFile.path} file.\n` +
-            `The following keys don't seem to be language codes: ${suspiciousKeys.join(', ')}.`)
-}
-
-/**
  * @name getSection
  * @description extracts the component information from a strings file
  * @param {String} pth
@@ -65,6 +50,5 @@ const getSection = (pth, cont) => {
 module.exports = {
     langList,
     flagConvert,
-    suspiciousKeys,
     getSection
 }

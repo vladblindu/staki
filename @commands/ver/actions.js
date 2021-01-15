@@ -1,9 +1,6 @@
-const chalk = require('chalk')
-const path = require('path')
-const {log} = require('../../@globals/helpers')
-const {throwErr} = require('../../@globals/helpers')
-const {isEmpty} = require('../../@globals/helpers')
-const {SEMVER_REGEXP, PKG} = require('../../@globals/constants')
+/**
+ * @custom-tag my custom tag
+ */
 
 /**
  * @type {Object} Package

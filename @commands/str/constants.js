@@ -15,8 +15,8 @@ const FLAG_EXTENSION = 'png'
 const META_FILE_NAME = `meta.${LANG_FILE_EXTENSION}`
 const SECTION = 'section'
 const INITIAL_STRINGS_FILE = `initial.${BASE_NAME}.${LANG_FILE_EXTENSION}`
-const INITIAL_STRINGS_PATH = path.join(BASE_NAME, INITIAL_STRINGS_FILE)
 const IMG_BASE64 = 'data:image/png;base64,'
+const CONFIG_ROOT = 'configRoot'
 
 module.exports = {
   IMG_BASE64,
@@ -25,8 +25,10 @@ module.exports = {
   GLOB_PATTERN:`**/?(${DEFAULT_FILE}|*.${DEFAULT_FILE})`,
   LOCALES_FILE_PATH,
   META_FILE_NAME,
-  INITIAL_STRINGS_PATH,
+  INITIAL_STRINGS_FILE,
   FLAG_EXTENSION,
-  FLAGS_PATH
+  FLAGS_PATH,
+  LANG_FILE_EXTENSION,
+  CONFIG_ROOT
 }
 

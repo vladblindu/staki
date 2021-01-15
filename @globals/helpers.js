@@ -24,7 +24,7 @@ const mkDir = (root, target = 'source') => {
  * @description safely reads a json file
  * @param {String} pth
  * @param {String?} target
- * @return {string | void}
+ * @return {Object}
  */
 const readJson = (pth, target = 'target') => {
     if (!fs.existsSync(pth))
