@@ -17,6 +17,8 @@ const defaultOpts = {
     log: 'log',
     iteration: 1
 }
+
+const PKG = 'package.json'
 /**
  * @name mockConsole
  * @description mocks console behaviour
@@ -111,10 +113,18 @@ const setTestDir = testSuite => {
     ]
 }
 
+const assume = pth => {
+    if (!pth) pth = PKG
+    if (!path.isAbsolute(pth))
+        pth = path.join(process.cwd(), pth)
+    return pth
+}
+
 /**
- * @param {String} pth
+ * @param {String?} pth
  */
 const fileCleanup = pth => {
+    pth = assume(pth)
     if (fs.existsSync(pth))
         fs.unlinkSync(pth)
 }
@@ -127,20 +137,28 @@ const dirCleanup = pth => {
         fs.rmdirSync(pth, {recursive: true})
 }
 
-const writePkg = (pkgPath, pkgData) => {
-    fs.writeFileSync(pkgPath, pkgData)
+const writePkg = (pth, pkgData) => {
+    if (typeof pth !== 'string') {
+        pkgData = pth
+        pth = ''
+    }
+    pth = assume(pth)
+    fs.writeFileSync(pth, JSON.stringify(pkgData, null, 2))
 }
-const getPkg = pkgPath => JSON.parse(fs.readFileSync(pkgPath, 'utf8'))
+
+const getPkg = pth =>
+    JSON.parse(fs.readFileSync(assume(pth), 'utf8'))
+
 
 const mkTestDir = dir => {
     return [
         () => {
             const cwd = path.join(process.cwd(), dir)
-            if(!fs.existsSync(cwd)) fs.mkdirSync(cwd)
+            if (!fs.existsSync(cwd)) fs.mkdirSync(cwd)
         },
         () => {
             const cwd = path.join(process.cwd(), dir)
-            if(fs.existsSync(cwd)) fs.rmdirSync(cwd, {recursive: true})
+            if (fs.existsSync(cwd)) fs.rmdirSync(cwd, {recursive: true})
         }
     ]
 }

@@ -11,9 +11,7 @@ const {
     readJson,
     writeJson,
     inline,
-    logOK,
-    silentMkDir,
-    isEmpty
+    logOK
 } = require('../../lib/helpers')
 const {
     GLOB_PATTERN,
@@ -64,7 +62,7 @@ class Strings {
      * @private
      * @no-test
      */
-    _putPackage(pkg){
+    _putPackage(pkg) {
         putPackage(pkg)
     }
 
@@ -143,13 +141,14 @@ class Strings {
      * @method _setup
      * @param {Object} pkg
      * @param {Boolean} verbose
+     * @returns {Object | undefined}
      * @private
      * @tested
      */
     _setup(pkg, verbose = false) {
         // 2. if it's a monorepo root package throw
         if (pkg.data[PACKAGES_ROOT])
-            return throwErr(`The current ${PKG} belongs to a mono-repo root (${chalk.blue(pkg.data.name)}).\n` +
+            throwErr(`The current ${PKG} belongs to a mono-repo root (${chalk.blue(pkg.data.name)}).\n` +
                 `Stringer should be initialized only in child projects.`)
         if (pkg.data[STAKI] &&
             pkg.data[STAKI][STRINGER] &&
@@ -164,21 +163,20 @@ class Strings {
     }
 
     /**
-     * @method _initialize
+     * @method _initPkg
      * @param {Object} pkg
      * @param {Boolean} verbose
      * @private
      * @tested
      */
-    async _initialize(pkg, verbose) {
-        if (!pkg.data[STAKI]) pkg.data[STAKI] = {}
-        if (!pkg.data[STAKI][STRINGER]) pkg.data[STAKI][STRINGER] = {}
+    async _initPkg(pkg, verbose) {
         // 2. initialize the package data and
         const setupData = await this._getQueriesData()
         this._populate(setupData)
         // 3. Solve the root dirs
         await this._setupDir()
         this._putMeta(verbose)
+        if (!pkg.data[STAKI]) pkg.data[STAKI] = {}
         pkg.data[STAKI][STRINGER] = setupData
         this._putPackage(pkg)
     }
@@ -187,11 +185,10 @@ class Strings {
      * @method _getQueriesData
      * @returns {QueriesData}
      * @private
-     * @no-test
+     * @returns {Object | undefined}
      */
     async _getQueriesData() {
         const locales = this._getLocales()
-        let tmp = null
         try {
             const _primaryQuery = primaryQuery(locales)
             const initial = await inquirer.prompt(_primaryQuery)
@@ -223,7 +220,7 @@ class Strings {
             absolute: true
         })
 
-        if(!filePaths.length)
+        if (!filePaths.length)
             throwErr(`No strings files found in: ${root}`)
 
         return filePaths.map(
@@ -269,7 +266,7 @@ class Strings {
                 // 4. and for each project lang
                 this._langs.forEach(
                     lng => {
-                        if(!acc[lng]) acc[lng] = {}
+                        if (!acc[lng]) acc[lng] = {}
                         // 5. store in the acc the [section.key] data for each language
                         Object.keys(fileData.content[lng]).forEach(
                             k => {
@@ -290,7 +287,7 @@ class Strings {
     _putLangsFiles(langData) {
         this._langs.forEach(
             lng => {
-                inline(`Writing ${path.join(this._destRoot, lng.concat('.',LANG_FILE_EXTENSION))}`)
+                inline(`Writing ${path.join(this._destRoot, lng.concat('.', LANG_FILE_EXTENSION))}`)
                 writeJson(
                     path.join(process.cwd(), this._destRoot, lng.concat('.', LANG_FILE_EXTENSION)),
                     langData[lng]
@@ -325,7 +322,7 @@ class Strings {
         const pkg = getPackage()
 
         // 2. initialize and populate
-        await this._initialize(pkg, verbose)
+        await this._initPkg(pkg, verbose)
 
         // 3. parse lang files
         const langData = this._parse()
@@ -334,13 +331,12 @@ class Strings {
         this._putLangsFiles(langData)
 
         // 5. save the initial.strings file
-        this._putInitialStrings()
+        this._putInitialStrings(langData)
     }
 
     /**
      * @method scan
      * @param {Boolean} verbose
-     * @returns {Promise<void>}
      */
     scan(verbose) {
         // 1. get the package.json file

@@ -1,17 +1,15 @@
 const path = require('path')
 const {expect} = require('chai')
-const inquirer = require('inquirer')
-const fs = require('fs')
-const {langList} = require('../../../@commands/str/helpers')
 const Strings = require('../../../@commands/str/strings.class')
-const {pick, isEmpty} = require('../../../lib/helpers')
+const {isEmpty} = require('../../../lib/helpers')
 const {BASE_NAME, META_FILE_NAME, CONFIG_ROOT} = require('../../../@commands/str/constants')
-const {STAKI, STRINGER, PKG, PACKAGES_ROOT} = require('../../../lib/constants')
-const {setTestDir, mockConsole, mockInteractive, mkTestDir, testReadJson} = require('../../helpers')
+const {STAKI, STRINGER, PACKAGES_ROOT} = require('../../../lib/constants')
+const {setTestDir, mkTestDir, testReadJson} = require('../../helpers')
 
 describe('strings class', () => {
 
-    const [testDir, cwd, resetCwd] = setTestDir('str-test')
+    // noinspection JSUnusedLocalSymbols
+    const [_, cwd, resetCwd] = setTestDir('str-test')
 
     const strings = new Strings()
 
@@ -23,10 +21,10 @@ describe('strings class', () => {
         defaultLang: 'en'
     }
 
-    const convertKeys = o => Object.keys(o).reduce((acc, k) => {
-        acc['_' + k] = o[k]
-        return acc
-    }, {})
+    // const convertKeys = o => Object.keys(o).reduce((acc, k) => {
+    //     acc['_' + k] = o[k]
+    //     return acc
+    // }, {})
 
     const populate = (o, data) => {
         Object.keys(data).forEach(
@@ -75,7 +73,7 @@ describe('strings class', () => {
         })
     })
 
-    describe('_initialize method', () => {
+    describe('_initPkg method', () => {
 
         const pkg = {data: {}}
 
@@ -88,7 +86,7 @@ describe('strings class', () => {
             strings._putPackage = pkg => {
                 expect(pkg.data[STAKI][STRINGER]).to.deep.equal(cfg)
             }
-            await strings._initialize(pkg)
+            await strings._initPkg(pkg)
         })
     })
 
@@ -125,7 +123,8 @@ describe('strings class', () => {
 
     describe('_collectFiles method', () => {
 
-        const [testDir, cwd, resetCwd] = setTestDir('str-test')
+        // noinspection JSUnusedLocalSymbols
+        const [_, cwd, resetCwd] = setTestDir('str-test')
 
         beforeEach(() => {
             cwd(path.join('packages', 'package1'))
@@ -190,7 +189,8 @@ describe('strings class', () => {
     })
 
     describe('_parse method', () => {
-        const [testDir, cwd, resetCwd] = setTestDir('str-test')
+        // noinspection JSUnusedLocalSymbols
+        const [_, cwd, resetCwd] = setTestDir('str-test')
 
         beforeEach(() => {
             cwd(path.join('packages', 'package1'))
@@ -233,7 +233,8 @@ describe('strings class', () => {
 
     describe('_putLangFiles method', () => {
         const testDestRoot = 'public/strings'
-        const [testDir, cwd, resetCwd] = setTestDir('str-test')
+        // noinspection JSUnusedLocalSymbols
+        const [_, cwd, resetCwd] = setTestDir('str-test')
         const [mkDestRoot, cleanupDestRoot] = mkTestDir(testDestRoot)
         cleanupDestRoot()
 
@@ -266,7 +267,8 @@ describe('strings class', () => {
     describe('_putInitialStrings method', () => {
 
         const testConfigRoot = '@config/strings'
-        const [testDir, cwd, resetCwd] = setTestDir('str-test')
+        // noinspection JSUnusedLocalSymbols
+        const [_, cwd, resetCwd] = setTestDir('str-test')
         const [mkDestRoot, cleanupDestRoot] = mkTestDir(testConfigRoot)
         cleanupDestRoot()
 

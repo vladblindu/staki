@@ -1,6 +1,6 @@
 {
   "name": "staki",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Starter kit project scaffolding utility",
   "main": "index.js",
   "author": "bitbrother",
